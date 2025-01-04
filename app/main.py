@@ -1,6 +1,15 @@
 from fastapi import FastAPI
+from app.routers import influencers, claims
 
-app = FastAPI()
+app = FastAPI(title="Verify Influencers API")
+
+#rutas de comentarios
+app.include_router(claims.router, prefix="/api", tags=["Claims"])
+
+# Incluir rutas desde influencers
+app.include_router(influencers.router, prefix="/api", tags=["Influencers"])
+
+#app = FastAPI()
 
 @app.get("/")
 def read_root():
