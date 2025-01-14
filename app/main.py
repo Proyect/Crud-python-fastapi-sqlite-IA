@@ -1,6 +1,5 @@
 from fastapi import FastAPI
-from app.routers import influencers, claims
-from app.routers import claims_openai
+from app.routers import influencers, claims, claims_openai
 
 app = FastAPI(title="Verify Influencers API")
 
@@ -13,7 +12,7 @@ app.include_router(influencers.router, prefix="/api", tags=["Influencers"])
 #open ai
 app.include_router(claims_openai.router, prefix="/api", tags=["AI Claims Analysis"])
 
-#app = FastAPI()
+app = FastAPI()
 
 @app.get("/")
 def read_root():

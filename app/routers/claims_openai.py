@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 from app.services.openai_client import analyze_claim
 from typing import List
 
